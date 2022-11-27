@@ -14,51 +14,53 @@ const snakeSpeed = {
 };
 
 const Snake = (props) => {
-  const [snakeSpeedState, setSnakeSpeedState] = useState(snakeSpeed.slow);
+  const [snakeSpeedState, setSnakeSpeedState] = useState(snakeSpeed.fast);
   const [snakePos, setSnakePos] = useState(snakeStartPos);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      const shift = () => snakeStartPos.shift();
-      if (props.direction == "left") {
-        return setSnakePos(moveLeft() && shift());
-      }
-      if (props.direction == "right") {
-        return setSnakePos(moveRight() && shift());
-      }
-      if (props.direction == "down") {
-        return setSnakePos(moveDown() && shift());
-      }
-    }, snakeSpeed.slow);
+      props.direction === "down" &&
+        setSnakePos((prev) => [
+          ...prev,
+          {
+            x: prev[prev.length - 1].x + 1,
+            y: prev[prev.length - 1].y,
+          },
+        ]);
+
+      props.direction === "up" &&
+        setSnakePos((prev) => [
+          ...prev,
+          {
+            x: prev[prev.length - 1].x - 1,
+            y: prev[prev.length - 1].y,
+          },
+        ]);
+
+      props.direction === "left" &&
+        setSnakePos((prev) => [
+          ...prev,
+          {
+            x: prev[prev.length - 1].x,
+            y: prev[prev.length - 1].y - 1,
+          },
+        ]);
+
+      props.direction === "right" &&
+        setSnakePos((prev) => [
+          ...prev,
+          {
+            x: prev[prev.length - 1].x,
+            y: prev[prev.length - 1].y + 1,
+          },
+        ]);
+    }, snakeSpeedState);
     return () => {
       clearInterval(interval);
     };
-  }, []);
+  }, [props.direction]);
 
-  const moveLeft = () =>
-    snakeStartPos.push({
-      x: snakeStartPos[snakeStartPos.length - 1].x,
-      y: snakeStartPos[snakeStartPos.length - 1].y - 1,
-    });
-
-  const moveDown = () =>
-    snakeStartPos.push({
-      x: snakeStartPos[snakeStartPos.length - 1].x + 1,
-      y: snakeStartPos[snakeStartPos.length - 1].y,
-    });
-
-  const moveUp = () =>
-    snakeStartPos.push({
-      x: snakeStartPos[snakeStartPos.length - 1].x - 1,
-      y: snakeStartPos[snakeStartPos.length - 1].y,
-    });
-  const moveRight = () =>
-    snakeStartPos.push({
-      x: snakeStartPos[snakeStartPos.length - 1].x,
-      y: snakeStartPos[snakeStartPos.length - 1].y + 1,
-    });
-
-  const snakeBody = snakeStartPos.map((segment) => (
+  const snakeBody = snakePos.map((segment) => (
     <div
       key={Math.random()}
       className={styles["snake"]}
