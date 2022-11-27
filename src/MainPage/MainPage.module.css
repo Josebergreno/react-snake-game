@@ -1,0 +1,16 @@
+.container {
+  margin: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(21, 1fr);
+  grid-template-rows: repeat(21, 1fr);
+  background-color: beige;
+  height: 70vmin;
+  width: 70vmin;
+  margin: 30px;
+}
