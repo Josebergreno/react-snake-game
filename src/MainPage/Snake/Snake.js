@@ -1,5 +1,6 @@
 import styles from "./Snake.module.css";
 import { useState, useEffect } from "react";
+import ModalWindow from "../Modal/ModalWindow";
 
 let snakeStartPos = [
   { x: 11, y: 11 },
@@ -18,18 +19,22 @@ const Snake = (props) => {
   const [snakePos, setSnakePos] = useState(snakeStartPos);
   const [gameOver, setGameOver] = useState(false);
   const head = snakePos[snakePos.length - 1];
-  console.log(head, gameOver);
 
-  const gameOverHandler = () => {
-    // gameOver===true?
-  };
-  22 <= Math.abs(head.x) && setGameOver(true);
-  22 <= Math.abs(head.y) && setGameOver(true);
-  0 === head.x && setGameOver(true);
-  0 === head.y && setGameOver(true);
+  if (
+    22 <= Math.abs(head.x) ||
+    22 <= Math.abs(head.y) ||
+    0 === head.x ||
+    0 === head.y
+  ) {
+    setSnakePos(snakeStartPos);
+    props.onGameOver();
+    setGameOver(true);
+  }
 
   useEffect(() => {
-    const interval = setInterval(() => {
+    let interval = setInterval(() => {
+      props.direction.current === "gameOver" && setSnakePos(snakePos);
+
       props.direction.current === "down" &&
         setSnakePos((prev) => [
           ...prev.slice(1),
@@ -82,7 +87,12 @@ const Snake = (props) => {
     ></div>
   ));
 
-  return snakeBody;
+  return (
+    <>
+      {snakeBody}
+      {gameOver === true && <ModalWindow onGameOver={gameOver} />}
+    </>
+  );
 };
 
 export default Snake;

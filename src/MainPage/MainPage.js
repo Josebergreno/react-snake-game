@@ -8,6 +8,12 @@ import ModalWindow from "./Modal/ModalWindow";
 const MainPage = () => {
   const refDirection = useRef();
 
+  const gameOverHandler = () => {
+    const value = refDirection.current;
+    refDirection.current = "gameOver";
+    console.log(value);
+  };
+
   const upClickHandler = () => {
     const value = refDirection.current;
     refDirection.current = "up";
@@ -33,9 +39,8 @@ const MainPage = () => {
     <>
       <div className={styles["container"]}>
         <div className={styles["grid"]}>
-          <Snake direction={refDirection} />
+          <Snake direction={refDirection} onGameOver={gameOverHandler} />
           <Apple direction={refDirection} />
-          <ModalWindow />
         </div>
       </div>
       <Buttons

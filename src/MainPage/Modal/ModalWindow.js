@@ -1,15 +1,15 @@
 import * as React from "react";
+import styles from "./ModalWindow.module.css";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import { useState } from "react";
 
-const ModalWindow = () => {
-  const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
+const ModalWindow = (props) => {
+  const [open, setOpen] = useState(true);
   const handleClose = () => setOpen(false);
-
+  const handleOpen = () => setOpen(true);
   const style = {
     position: "absolute",
     top: "50%",
@@ -21,6 +21,7 @@ const ModalWindow = () => {
     boxShadow: 24,
     p: 4,
   };
+  console.log(props.onGameOver);
 
   return (
     <div>
@@ -35,7 +36,9 @@ const ModalWindow = () => {
             You Lose!!!!!!
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            <Button variant="outlined">Try Again</Button>
+            <Button onClick={handleClose} variant="outlined">
+              Try Again
+            </Button>
           </Typography>
         </Box>
       </Modal>
