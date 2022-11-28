@@ -1,7 +1,7 @@
 import styles from "./App.module.css";
 import Header from "./Header/Header";
-import Buttons from "./MainPage/Buttons/Buttons";
 import MainPage from "./MainPage/MainPage";
+import ModalWindow from "./MainPage/Modal/ModalWindow";
 
 const App = () => {
   return (

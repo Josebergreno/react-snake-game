@@ -1,8 +1,9 @@
 import Apple from "./Apple/Apple";
 import Buttons from "./Buttons/Buttons";
 import styles from "./MainPage.module.css";
-import { useEffect, useState, useRef } from "react";
+import { useRef } from "react";
 import Snake from "./Snake/Snake";
+import ModalWindow from "./Modal/ModalWindow";
 
 const MainPage = () => {
   const refDirection = useRef();
@@ -33,7 +34,8 @@ const MainPage = () => {
       <div className={styles["container"]}>
         <div className={styles["grid"]}>
           <Snake direction={refDirection} />
-          <Apple />
+          <Apple direction={refDirection} />
+          <ModalWindow />
         </div>
       </div>
       <Buttons

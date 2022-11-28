@@ -16,19 +16,28 @@ const snakeSpeed = {
 const Snake = (props) => {
   const [snakeSpeedState, setSnakeSpeedState] = useState(snakeSpeed.fast);
   const [snakePos, setSnakePos] = useState(snakeStartPos);
+  const [gameOver, setGameOver] = useState(false);
+  const head = snakePos[snakePos.length - 1];
+  console.log(head, gameOver);
+
+  const gameOverHandler = () => {
+    // gameOver===true?
+  };
+  22 <= Math.abs(head.x) && setGameOver(true);
+  22 <= Math.abs(head.y) && setGameOver(true);
+  0 === head.x && setGameOver(true);
+  0 === head.y && setGameOver(true);
 
   useEffect(() => {
     const interval = setInterval(() => {
       props.direction.current === "down" &&
-        setSnakePos((prev) => {
-          return [
-            ...prev.slice(1),
-            {
-              x: prev[prev.length - 1].x + 1,
-              y: prev[prev.length - 1].y,
-            },
-          ];
-        });
+        setSnakePos((prev) => [
+          ...prev.slice(1),
+          {
+            x: prev[prev.length - 1].x + 1,
+            y: prev[prev.length - 1].y,
+          },
+        ]);
 
       props.direction.current === "up" &&
         setSnakePos((prev) => [
