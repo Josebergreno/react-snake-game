@@ -1,4 +1,3 @@
-import Apple from "./Apple/Apple";
 import Buttons from "./Buttons/Buttons";
 import styles from "./MainPage.module.css";
 import { useRef } from "react";

@@ -1,5 +1,5 @@
 .apple {
-  border: 0.25vmin solid black;
   background-color: red;
-  border-radius: 3px;
+  border-radius: 7px;
+  border: 0.25vmin solid black;
 }

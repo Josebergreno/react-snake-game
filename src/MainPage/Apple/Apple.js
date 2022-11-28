@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "./Apple.module.css";
+import AppleIcon from "@mui/icons-material/Apple";
 
 const Apple = (props) => {
   const [applePos, setApplePos] = useState({ x: 5, y: 5 });
