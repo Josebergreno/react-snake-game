@@ -15,8 +15,6 @@ const Apple = () => {
     setApplePos(randomApple);
   };
 
-  console.log(applePos);
-
   return (
     <div
       className={styles["apple"]}

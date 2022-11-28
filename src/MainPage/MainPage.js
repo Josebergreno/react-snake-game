@@ -5,30 +5,34 @@ import { useEffect, useState, useRef } from "react";
 import Snake from "./Snake/Snake";
 
 const MainPage = () => {
-  const [direction, setDirection] = useState("right");
+  const refDirection = useRef();
 
   const upClickHandler = () => {
-    setDirection("up");
-    console.log(direction);
+    const value = refDirection.current;
+    refDirection.current = "up";
+    console.log(value);
   };
   const leftClickHandler = () => {
-    setDirection("left");
-    console.log(direction);
+    const value = refDirection.current;
+    refDirection.current = "left";
+    console.log(value);
   };
   const rightClickHandler = () => {
-    setDirection("right");
-    console.log(direction);
+    const value = refDirection.current;
+    refDirection.current = "right";
+    console.log(value);
   };
   const downClickHandler = () => {
-    setDirection("down");
-    console.log(direction);
+    const value = refDirection.current;
+    refDirection.current = "down";
+    console.log(value);
   };
 
   return (
     <>
       <div className={styles["container"]}>
         <div className={styles["grid"]}>
-          <Snake direction={direction} />
+          <Snake direction={refDirection} />
           <Apple />
         </div>
       </div>
