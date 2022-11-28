@@ -19,19 +19,20 @@ const Snake = (props) => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      console.log(props.direction.current);
       props.direction.current === "down" &&
-        setSnakePos((prev) => [
-          ...prev,
-          {
-            x: prev[prev.length - 1].x + 1,
-            y: prev[prev.length - 1].y,
-          },
-        ]);
+        setSnakePos((prev) => {
+          return [
+            ...prev.slice(1),
+            {
+              x: prev[prev.length - 1].x + 1,
+              y: prev[prev.length - 1].y,
+            },
+          ];
+        });
 
       props.direction.current === "up" &&
         setSnakePos((prev) => [
-          ...prev,
+          ...prev.slice(1),
           {
             x: prev[prev.length - 1].x - 1,
             y: prev[prev.length - 1].y,
@@ -40,7 +41,7 @@ const Snake = (props) => {
 
       props.direction.current === "left" &&
         setSnakePos((prev) => [
-          ...prev,
+          ...prev.slice(1),
           {
             x: prev[prev.length - 1].x,
             y: prev[prev.length - 1].y - 1,
@@ -49,7 +50,7 @@ const Snake = (props) => {
 
       props.direction.current === "right" &&
         setSnakePos((prev) => [
-          ...prev,
+          ...prev.slice(1),
           {
             x: prev[prev.length - 1].x,
             y: prev[prev.length - 1].y + 1,
