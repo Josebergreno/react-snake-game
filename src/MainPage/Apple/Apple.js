@@ -8,15 +8,21 @@ const Apple = (props) => {
     x: Math.floor(Math.random() * gridSize),
     y: Math.floor(Math.random() * gridSize),
   };
+  const head = props.head;
 
-  props.direction.current === "right" && setApplePos(randomApple);
+  useEffect(() => {
+    if (head.x === applePos.x && head.y === applePos.y) {
+      props.onEaten();
+      setApplePos(randomApple);
+    }
+  });
 
   return (
     <div
       className={styles["apple"]}
       style={{
-        gridRowStart: `${randomApple.x}`,
-        gridColumnStart: `${randomApple.y}`,
+        gridRowStart: `${applePos.x}`,
+        gridColumnStart: `${applePos.y}`,
       }}
     />
   );

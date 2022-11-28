@@ -12,16 +12,20 @@ const ModalWindow = (props) => {
   const handleOpen = () => setOpen(true);
   const style = {
     position: "absolute",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
     width: 400,
     bgcolor: "background.paper",
     border: "2px solid #000",
+    borderRadius: "5px",
     boxShadow: 24,
     p: 4,
   };
-  console.log(props.onGameOver);
 
   return (
     <div>
@@ -32,14 +36,18 @@ const ModalWindow = (props) => {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
-            You Lose!!!!!!
-          </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            <Button onClick={handleClose} variant="outlined">
-              Try Again
-            </Button>
-          </Typography>
+          <div className={styles["modal-header"]}>
+            <Typography id="modal-modal-title" variant="h6" component="h2">
+              You Lose!!!!!!
+            </Typography>
+          </div>
+          <div className={styles["try-again--btn"]}>
+            <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+              <Button onClick={handleClose} variant="outlined">
+                Try Again
+              </Button>
+            </Typography>
+          </div>
         </Box>
       </Modal>
     </div>

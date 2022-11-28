@@ -5,11 +5,17 @@ import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import PauseIcon from "@mui/icons-material/Pause";
+import RestartAltIcon from "@mui/icons-material/RestartAlt";
 
 const Buttons = (props) => {
+  const hey = () => {
+    console.log("hey");
+  };
+
   return (
     <div className={styles["button-container"]}>
-      <div className={styles["top-row"]}>
+      <div className={styles["first-row"]}>
         <Button
           onClick={props.onUpClick}
           key="up"
@@ -19,7 +25,7 @@ const Buttons = (props) => {
           <ArrowUpwardIcon />
         </Button>
       </div>
-      <div className={styles["bottom-row"]}>
+      <div className={styles["second-row"]}>
         <Button
           onClick={props.onLeftClick}
           variant="outlined"
@@ -27,13 +33,16 @@ const Buttons = (props) => {
         >
           <ArrowBackIcon />
         </Button>
+
         <Button
+          tabIndex={1}
           onClick={props.onDownClick}
           variant="outlined"
           sx={{ margin: "3px" }}
         >
           <ArrowDownwardIcon />
         </Button>
+
         <Button
           onClick={props.onRightClick}
           key="right"
@@ -41,6 +50,22 @@ const Buttons = (props) => {
           sx={{ margin: "3px" }}
         >
           <ArrowForwardIcon />
+        </Button>
+      </div>
+      <div className={styles["third-row"]}>
+        <Button
+          onClick={props.onPause}
+          variant="outlined"
+          sx={{ margin: "3px" }}
+        >
+          <PauseIcon />
+        </Button>
+        <Button
+          onClick={props.onRestart}
+          variant="outlined"
+          sx={{ margin: "3px" }}
+        >
+          <RestartAltIcon />
         </Button>
       </div>
     </div>

@@ -3,44 +3,52 @@ import Buttons from "./Buttons/Buttons";
 import styles from "./MainPage.module.css";
 import { useRef } from "react";
 import Snake from "./Snake/Snake";
-import ModalWindow from "./Modal/ModalWindow";
 
 const MainPage = () => {
   const refDirection = useRef();
 
+  const restartHandler = () => {
+    const value = refDirection.current;
+    refDirection.current = "restart";
+  };
+
+  const pauseHandler = () => {
+    const value = refDirection.current;
+    refDirection.current = "pause";
+  };
+
   const gameOverHandler = () => {
     const value = refDirection.current;
     refDirection.current = "gameOver";
-    console.log(value);
   };
 
   const upClickHandler = () => {
     const value = refDirection.current;
     refDirection.current = "up";
-    console.log(value);
   };
   const leftClickHandler = () => {
     const value = refDirection.current;
     refDirection.current = "left";
-    console.log(value);
   };
   const rightClickHandler = () => {
     const value = refDirection.current;
     refDirection.current = "right";
-    console.log(value);
   };
   const downClickHandler = () => {
     const value = refDirection.current;
     refDirection.current = "down";
-    console.log(value);
   };
 
   return (
     <>
       <div className={styles["container"]}>
         <div className={styles["grid"]}>
-          <Snake direction={refDirection} onGameOver={gameOverHandler} />
-          <Apple direction={refDirection} />
+          <Snake
+            direction={refDirection}
+            onGameOver={gameOverHandler}
+            onRestart={restartHandler}
+            onPause={pauseHandler}
+          />
         </div>
       </div>
       <Buttons
@@ -48,6 +56,8 @@ const MainPage = () => {
         onRightClick={rightClickHandler}
         onUpClick={upClickHandler}
         onLeftClick={leftClickHandler}
+        onPause={pauseHandler}
+        onRestart={restartHandler}
       />
     </>
   );

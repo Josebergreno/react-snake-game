@@ -1,6 +1,7 @@
 import styles from "./Snake.module.css";
 import { useState, useEffect } from "react";
 import ModalWindow from "../Modal/ModalWindow";
+import Apple from "../Apple/Apple";
 
 let snakeStartPos = [
   { x: 11, y: 11 },
@@ -17,7 +18,7 @@ const snakeSpeed = {
 const Snake = (props) => {
   const [snakeSpeedState, setSnakeSpeedState] = useState(snakeSpeed.fast);
   const [snakePos, setSnakePos] = useState(snakeStartPos);
-  const [gameOver, setGameOver] = useState(false);
+
   const head = snakePos[snakePos.length - 1];
 
   if (
@@ -26,14 +27,21 @@ const Snake = (props) => {
     0 === head.x ||
     0 === head.y
   ) {
-    setSnakePos(snakeStartPos);
     props.onGameOver();
-    setGameOver(true);
   }
+
+  if (props.direction.current === "pause") {
+    setSnakePos(snakePos);
+  }
+  const eatenHandler = () => {
+    setSnakePos([...snakePos, head]);
+  };
 
   useEffect(() => {
     let interval = setInterval(() => {
-      props.direction.current === "gameOver" && setSnakePos(snakePos);
+      props.direction.current === "restart" && setSnakePos(snakeStartPos);
+
+      props.direction.current === "gameOver" && setSnakePos(snakeStartPos);
 
       props.direction.current === "down" &&
         setSnakePos((prev) => [
@@ -90,7 +98,8 @@ const Snake = (props) => {
   return (
     <>
       {snakeBody}
-      {gameOver === true && <ModalWindow onGameOver={gameOver} />}
+      <Apple head={head} onEaten={eatenHandler} />
+      {props.direction.current === "gameOver" && <ModalWindow />}
     </>
   );
 };

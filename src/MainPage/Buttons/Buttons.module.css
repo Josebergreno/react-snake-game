@@ -4,16 +4,21 @@
   justify-content: center;
   align-items: center;
   margin-bottom: 10px;
-  background-color: aquamarine;
 }
 
-.top-row {
+.first-row {
   width: 100%;
   justify-content: center;
   display: flex;
 }
 
-.bottom-row {
+.second-row {
+  width: 100%;
+  justify-content: center;
+  display: flex;
+}
+
+.third-row {
   width: 100%;
   justify-content: center;
   display: flex;
