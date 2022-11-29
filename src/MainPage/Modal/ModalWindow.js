@@ -9,7 +9,7 @@ import { useState } from "react";
 const ModalWindow = (props) => {
   const [open, setOpen] = useState(true);
   const handleClose = () => setOpen(false);
-  const handleOpen = () => setOpen(true);
+
   const style = {
     position: "absolute",
     display: "flex",

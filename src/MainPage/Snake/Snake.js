@@ -91,7 +91,7 @@ const Snake = (props) => {
     return () => {
       clearInterval(interval);
     };
-  }, [snakeSpeedState]);
+  }, [snakeSpeedState, props.direction]);
 
   const snakeBody = snakePos.map((segment) => (
     <div
