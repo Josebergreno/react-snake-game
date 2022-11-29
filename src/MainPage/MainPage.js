@@ -2,6 +2,8 @@ import Buttons from "./Buttons/Buttons";
 import styles from "./MainPage.module.css";
 import { useRef } from "react";
 import Snake from "./Snake/Snake";
+import { Modal } from "@mui/material";
+import ModalWindow from "./Modal/ModalWindow";
 
 const MainPage = () => {
   const refDirection = useRef("start");

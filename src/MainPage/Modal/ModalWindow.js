@@ -27,76 +27,89 @@ const ModalWindow = (props) => {
     p: 4,
   };
 
+  const difficultyButtons = () => {
+    let key = props.snakeSpeedState;
+    const color = () => {
+      if (key === 100) {
+        return colors[2];
+      } else if (key === 250) {
+        return colors[1];
+      } else if (key === 400) {
+        return colors[0];
+      }
+    };
+    const colors = ["lightgreen", "yellow", "red"];
+    return {
+      margin: "2px",
+      transition: ".5s",
+      "&:hover": { transform: "scale(1.05)" },
+      "&:focus": {
+        backgroundColor: `${color()}`,
+        color: "black",
+        transform: "scale(1.05)",
+      },
+    };
+  };
+
   return (
-    <div>
-      <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
-        <Box sx={style}>
-          <div className={styles["modal-header"]}>
-            {props.direction === "gameOver" && (
-              <Typography id="modal-modal-title" variant="h6" component="h2">
-                You Lose!!!!!!
-              </Typography>
-            )}
-            {props.direction === "start" && (
-              <Typography id="modal-modal-title" variant="h6" component="h2">
-                Choose a difficulty and press play!
-              </Typography>
-            )}
-          </div>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            <div className={styles["try-again--btn"]}>
-              {props.direction === "gameOver" && (
-                <Button onClick={handleClose} variant="outlined">
-                  Try Again
-                </Button>
-              )}
-              {props.direction === "start" && (
-                <Button onClick={handleClose} variant="outlined">
-                  Play
-                </Button>
-              )}
-            </div>
-            <div className={styles["button-group"]}>
-              <Button
-                onFocus={() => props.onSpeedChange(props.snakeSpeed.slow)}
-                variant="outlined"
-                sx={{
-                  margin: "2px",
-                  "&:focus": { backgroundColor: "lightgreen", color: "black" },
-                }}
-              >
-                Easy
-              </Button>
-              <Button
-                onFocus={() => props.onSpeedChange(props.snakeSpeed.normal)}
-                variant="outlined"
-                sx={{
-                  margin: "2px",
-                  "&:focus": { backgroundColor: "yellow", color: "black" },
-                }}
-              >
-                Medium
-              </Button>
-              <Button
-                onFocus={() => props.onSpeedChange(props.snakeSpeed.fast)}
-                variant="outlined"
-                sx={{
-                  margin: "2px",
-                  "&:focus": { backgroundColor: "red", color: "black" },
-                }}
-              >
-                Hard
-              </Button>
-            </div>
-          </Typography>
-        </Box>
-      </Modal>
-    </div>
+    <Modal
+      open={open}
+      onClose={handleClose}
+      component="span"
+      aria-labelledby="modal-modal-title"
+      aria-describedby="modal-modal-description"
+    >
+      <Box sx={style}>
+        <div className={styles["modal-header"]}>
+          {props.direction === "gameOver" && (
+            <Typography id="modal-modal-title" variant="h6" component="h2">
+              You Lose!!!!!!
+            </Typography>
+          )}
+          {props.direction === "start" && (
+            <Typography id="modal-modal-title" variant="h6" component="h2">
+              Choose a difficulty and press play!
+            </Typography>
+          )}
+        </div>
+
+        <div className={styles["try-again--btn"]}>
+          {props.direction === "gameOver" && (
+            <Button onClick={handleClose} variant="outlined">
+              Try Again
+            </Button>
+          )}
+          {props.direction === "start" && (
+            <Button onClick={handleClose} variant="outlined">
+              Play
+            </Button>
+          )}
+        </div>
+        <div className={styles["button-group"]}>
+          <Button
+            onFocus={() => props.onSpeedChange(props.snakeSpeed.slow)}
+            variant="outlined"
+            sx={difficultyButtons}
+          >
+            Easy
+          </Button>
+          <Button
+            onFocus={() => props.onSpeedChange(props.snakeSpeed.normal)}
+            variant="outlined"
+            sx={difficultyButtons}
+          >
+            Medium
+          </Button>
+          <Button
+            onFocus={() => props.onSpeedChange(props.snakeSpeed.fast)}
+            variant="outlined"
+            sx={difficultyButtons()}
+          >
+            Hard
+          </Button>
+        </div>
+      </Box>
+    </Modal>
   );
 };
 

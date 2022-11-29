@@ -104,16 +104,16 @@ const Snake = (props) => {
     ></div>
   ));
 
-  console.log(props.direction.current);
-
   return (
     <>
       {snakeBody}
       <Apple head={head} onEaten={eatenHandler} />
+
       {props.direction.current === "start" && (
         <ModalWindow
           onSpeedChange={setSnakeSpeedState}
           snakeSpeed={snakeSpeed}
+          snakeSpeedState={snakeSpeedState}
           direction={props.direction.current}
         />
       )}
@@ -121,6 +121,7 @@ const Snake = (props) => {
         <ModalWindow
           onSpeedChange={setSnakeSpeedState}
           snakeSpeed={snakeSpeed}
+          snakeSpeedState={snakeSpeedState}
           direction={props.direction.current}
         />
       )}
