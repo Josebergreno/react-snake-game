@@ -38,7 +38,7 @@ const Snake = (props) => {
     setSnakePos([snakePos[0], ...snakePos]);
   };
 
-  tail.forEach((val, i) => {
+  tail.forEach((val) => {
     if (val.x === head.x && val.y === head.y) {
       props.onGameOver();
     }
@@ -46,6 +46,8 @@ const Snake = (props) => {
 
   useEffect(() => {
     let interval = setInterval(() => {
+      snakeSpeedState === "100" && setSnakeSpeedState(snakeSpeed.fast);
+
       props.direction.current === "restart" && setSnakePos(snakeStartPos);
 
       props.direction.current === "gameOver" && setSnakePos(snakeStartPos);
@@ -89,7 +91,7 @@ const Snake = (props) => {
     return () => {
       clearInterval(interval);
     };
-  }, []);
+  }, [snakeSpeedState]);
 
   const snakeBody = snakePos.map((segment) => (
     <div
@@ -102,11 +104,26 @@ const Snake = (props) => {
     ></div>
   ));
 
+  console.log(props.direction.current);
+
   return (
     <>
       {snakeBody}
       <Apple head={head} onEaten={eatenHandler} />
-      {props.direction.current === "gameOver" && <ModalWindow />}
+      {props.direction.current === "start" && (
+        <ModalWindow
+          onSpeedChange={setSnakeSpeedState}
+          snakeSpeed={snakeSpeed}
+          direction={props.direction.current}
+        />
+      )}
+      {props.direction.current === "gameOver" && (
+        <ModalWindow
+          onSpeedChange={setSnakeSpeedState}
+          snakeSpeed={snakeSpeed}
+          direction={props.direction.current}
+        />
+      )}
     </>
   );
 };

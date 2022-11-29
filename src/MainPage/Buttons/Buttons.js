@@ -18,7 +18,7 @@ const Buttons = (props) => {
           onKeyDown={props.onKeyPress}
           key="up"
           variant="outlined"
-          sx={{ margin: "3px" }}
+          sx={{ margin: "3px", width: "10%" }}
         >
           <ArrowUpwardIcon />
         </Button>
@@ -27,7 +27,7 @@ const Buttons = (props) => {
         <Button
           onClick={props.onLeftClick}
           variant="outlined"
-          sx={{ margin: "3px" }}
+          sx={{ margin: "3px", width: "10%" }}
         >
           <ArrowBackIcon />
         </Button>
@@ -36,7 +36,7 @@ const Buttons = (props) => {
           tabIndex={1}
           onClick={props.onDownClick}
           variant="outlined"
-          sx={{ margin: "3px" }}
+          sx={{ margin: "3px", width: "10%" }}
         >
           <ArrowDownwardIcon />
         </Button>
@@ -45,7 +45,7 @@ const Buttons = (props) => {
           onClick={props.onRightClick}
           key="right"
           variant="outlined"
-          sx={{ margin: "3px" }}
+          sx={{ margin: "3px", width: "10%" }}
         >
           <ArrowForwardIcon />
         </Button>

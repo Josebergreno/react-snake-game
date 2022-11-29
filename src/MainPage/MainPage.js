@@ -4,7 +4,7 @@ import { useRef } from "react";
 import Snake from "./Snake/Snake";
 
 const MainPage = () => {
-  const refDirection = useRef();
+  const refDirection = useRef("start");
 
   const keyPressHandler = (e) => {
     e.key == "ArrowUp" && upClickHandler();

@@ -1,8 +1,8 @@
 .container {
-  margin: 0;
   width: 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .grid {
@@ -10,7 +10,7 @@
   grid-template-columns: repeat(21, 1fr);
   grid-template-rows: repeat(21, 1fr);
   background-color: beige;
-  height: 70vmin;
-  width: 70vmin;
+  height: 60vmin;
+  width: 60vmin;
   margin: 30px;
 }
