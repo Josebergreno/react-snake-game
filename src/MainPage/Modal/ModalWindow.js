@@ -63,7 +63,10 @@ const ModalWindow = (props) => {
         </div>
         <div className={styles["button-group"]}>
           <Button
-            onFocus={() => props.onSpeedChange(props.snakeSpeed.slow)}
+            onClick={(e) => {
+              e.target.focus();
+              return props.onSpeedChange(props.snakeSpeed.slow);
+            }}
             variant="outlined"
             sx={{
               margin: "2px",
@@ -79,7 +82,10 @@ const ModalWindow = (props) => {
             Easy
           </Button>
           <Button
-            onFocus={() => props.onSpeedChange(props.snakeSpeed.normal)}
+            onClick={(e) => {
+              e.target.focus();
+              return props.onSpeedChange(props.snakeSpeed.normal);
+            }}
             variant="outlined"
             sx={{
               margin: "2px",
@@ -95,7 +101,10 @@ const ModalWindow = (props) => {
             Medium
           </Button>
           <Button
-            onFocus={() => props.onSpeedChange(props.snakeSpeed.fast)}
+            onClick={(e) => {
+              e.target.focus();
+              return props.onSpeedChange(props.snakeSpeed.fast);
+            }}
             variant="outlined"
             sx={{
               margin: "2px",
