@@ -9,15 +9,13 @@ import PauseIcon from "@mui/icons-material/Pause";
 import RestartAltIcon from "@mui/icons-material/RestartAlt";
 
 const Buttons = (props) => {
-  const hey = () => {
-    console.log("hey");
-  };
-
   return (
     <div className={styles["button-container"]}>
       <div className={styles["first-row"]}>
         <Button
+          autoFocus
           onClick={props.onUpClick}
+          onKeyDown={props.onKeyPress}
           key="up"
           variant="outlined"
           sx={{ margin: "3px" }}

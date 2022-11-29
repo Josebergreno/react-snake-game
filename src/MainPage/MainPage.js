@@ -6,6 +6,15 @@ import Snake from "./Snake/Snake";
 const MainPage = () => {
   const refDirection = useRef();
 
+  const keyPressHandler = (e) => {
+    e.key == "ArrowUp" && upClickHandler();
+    e.key == "ArrowRight" && rightClickHandler();
+    e.key == "ArrowDown" && downClickHandler();
+    e.key == "ArrowLeft" && leftClickHandler();
+    e.key == "Shift" && pauseHandler();
+    e.key == "1" && restartHandler();
+  };
+
   const restartHandler = () => {
     const value = refDirection.current;
     refDirection.current = "restart";
@@ -57,6 +66,7 @@ const MainPage = () => {
         onLeftClick={leftClickHandler}
         onPause={pauseHandler}
         onRestart={restartHandler}
+        onKeyPress={keyPressHandler}
       />
     </>
   );
