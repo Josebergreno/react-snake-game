@@ -5,6 +5,7 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import { useState } from "react";
+import { ButtonGroup } from "@mui/material";
 
 const ModalWindow = (props) => {
   const [open, setOpen] = useState(true);
@@ -26,6 +27,9 @@ const ModalWindow = (props) => {
     boxShadow: 24,
     p: 4,
   };
+  const buttonStyle = {
+    backgroundColor: "blue",
+  };
 
   return (
     <div>
@@ -41,13 +45,34 @@ const ModalWindow = (props) => {
               You Lose!!!!!!
             </Typography>
           </div>
-          <div className={styles["try-again--btn"]}>
-            <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+            <div className={styles["try-again--btn"]}>
               <Button onClick={handleClose} variant="outlined">
                 Try Again
               </Button>
-            </Typography>
-          </div>
+            </div>
+            <div className={styles["button-group"]}>
+              <Button
+                variant="outlined"
+                sx={{ margin: "2px", "&:focus": { backgroundColor: "red" } }}
+              >
+                Easy
+              </Button>
+              <Button
+                variant="outlined"
+                sx={{ margin: "2px", "&:focus": { backgroundColor: "red" } }}
+              >
+                Medium
+              </Button>
+              <Button
+                onFocus={() => console.log("set the speed state to hard")}
+                variant="outlined"
+                sx={{ margin: "2px", "&:focus": { backgroundColor: "red" } }}
+              >
+                Hard
+              </Button>
+            </div>
+          </Typography>
         </Box>
       </Modal>
     </div>
