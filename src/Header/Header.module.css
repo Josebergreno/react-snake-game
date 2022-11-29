@@ -1,0 +1,12 @@
+.title {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: monospace;
+  font-weight: 700;
+  letter-spacing: 0.3rem;
+  color: inherit;
+  height: 100%;
+  font-size: 10vh;
+}

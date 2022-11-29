@@ -1,7 +1,6 @@
 import * as React from "react";
 import AppBar from "@mui/material/AppBar";
-import Typography from "@mui/material/Typography";
-import Container from "@mui/material/Container";
+import styles from "./Header.module.css";
 
 const Header = () => {
   return (
@@ -11,31 +10,10 @@ const Header = () => {
         height: "10vh",
         display: "flex",
         justifyContent: "center",
+        alignContent: "center",
       }}
     >
-      <Container
-        maxWidth="xl"
-        sx={{ height: "inherit", display: "flex", justifyContent: "center" }}
-      >
-        <Typography
-          variant="h2"
-          noWrap
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            fontFamily: "monospace",
-            fontWeight: 700,
-            letterSpacing: ".3rem",
-            color: "inherit",
-            height: "100%",
-            width: "50%",
-            fontSize: "10vh",
-          }}
-        >
-          SN8KE
-        </Typography>
-      </Container>
+      <h2 className={styles["title"]}>SN8KE</h2>
     </AppBar>
   );
 };
