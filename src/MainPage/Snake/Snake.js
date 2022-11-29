@@ -46,8 +46,6 @@ const Snake = (props) => {
 
   useEffect(() => {
     let interval = setInterval(() => {
-      snakeSpeedState === "100" && setSnakeSpeedState(snakeSpeed.fast);
-
       props.direction.current === "restart" && setSnakePos(snakeStartPos);
 
       props.direction.current === "gameOver" && setSnakePos(snakeStartPos);

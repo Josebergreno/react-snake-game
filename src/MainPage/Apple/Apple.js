@@ -9,16 +9,19 @@ const Apple = (props) => {
 
   // eslint-disable-next-line
   const randomApple = {
-    x: Math.floor(Math.random() * gridSize),
-    y: Math.floor(Math.random() * gridSize),
+    x: Math.floor(Math.random() * gridSize) + 1,
+    y: Math.floor(Math.random() * gridSize) + 1,
   };
+  console.log(randomApple);
+  console.log(head.x === applePos.x && head.y === applePos.y);
 
-  useEffect(() => {
-    if (head.x === applePos.x && head.y === applePos.y) {
-      props.onEaten();
-      setApplePos(randomApple);
-    }
-  }, [head.x, head.y, applePos.x, applePos.y, props, randomApple]);
+  console.log([head.x, head.y]);
+  console.log([applePos.x, applePos.y]);
+
+  if (head.x === applePos.x && head.y === applePos.y) {
+    props.onEaten();
+    setApplePos(randomApple);
+  }
 
   return (
     <div
