@@ -27,30 +27,6 @@ const ModalWindow = (props) => {
     p: 4,
   };
 
-  const difficultyButtons = () => {
-    let key = props.snakeSpeedState;
-    const color = () => {
-      if (key === 100) {
-        return colors[2];
-      } else if (key === 250) {
-        return colors[1];
-      } else if (key === 400) {
-        return colors[0];
-      }
-    };
-    const colors = ["lightgreen", "yellow", "red"];
-    return {
-      margin: "2px",
-      transition: ".5s",
-      "&:hover": { transform: "scale(1.05)" },
-      "&:focus": {
-        backgroundColor: `${color()}`,
-        color: "black",
-        transform: "scale(1.05)",
-      },
-    };
-  };
-
   return (
     <Modal
       open={open}
@@ -89,21 +65,48 @@ const ModalWindow = (props) => {
           <Button
             onFocus={() => props.onSpeedChange(props.snakeSpeed.slow)}
             variant="outlined"
-            sx={difficultyButtons}
+            sx={{
+              margin: "2px",
+              transition: ".5s",
+              "&:hover": { transform: "scale(1.05)" },
+              "&:focus": {
+                backgroundColor: "lightgreen",
+                color: "black",
+                transform: "scale(1.05)",
+              },
+            }}
           >
             Easy
           </Button>
           <Button
             onFocus={() => props.onSpeedChange(props.snakeSpeed.normal)}
             variant="outlined"
-            sx={difficultyButtons}
+            sx={{
+              margin: "2px",
+              transition: ".5s",
+              "&:hover": { transform: "scale(1.05)" },
+              "&:focus": {
+                backgroundColor: "yellow",
+                color: "black",
+                transform: "scale(1.05)",
+              },
+            }}
           >
             Medium
           </Button>
           <Button
             onFocus={() => props.onSpeedChange(props.snakeSpeed.fast)}
             variant="outlined"
-            sx={difficultyButtons()}
+            sx={{
+              margin: "2px",
+              transition: ".5s",
+              "&:hover": { transform: "scale(1.05)" },
+              "&:focus": {
+                backgroundColor: "red",
+                color: "black",
+                transform: "scale(1.05)",
+              },
+            }}
           >
             Hard
           </Button>
