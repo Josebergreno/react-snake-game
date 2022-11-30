@@ -105,7 +105,7 @@ const Snake = (props) => {
   return (
     <>
       {snakeBody}
-      <Apple head={head} onEaten={eatenHandler} />
+      <Apple head={head} snakePos={snakePos} onEaten={eatenHandler} />
 
       {props.direction.current === "start" && (
         <ModalWindow
