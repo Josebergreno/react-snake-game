@@ -18,48 +18,52 @@ const Buttons = (props) => {
           onKeyDown={props.onKeyPress}
           key="up"
           variant="outlined"
-          sx={{ margin: "3px", width: "10%" }}
+          sx={{ margin: "3px", width: "10%", backgroundColor: "#1976d2" }}
         >
-          <ArrowUpwardIcon />
+          <ArrowUpwardIcon sx={{ color: "white" }} />
         </Button>
       </div>
       <div className={styles["second-row"]}>
         <Button
           onClick={props.onLeftClick}
           variant="outlined"
-          sx={{ margin: "3px", width: "10%" }}
+          sx={{ margin: "3px", width: "10%", backgroundColor: "#1976d2" }}
         >
-          <ArrowBackIcon />
+          <ArrowBackIcon sx={{ color: "white" }} />
         </Button>
 
         <Button
           tabIndex={1}
           onClick={props.onDownClick}
           variant="outlined"
-          sx={{ margin: "3px", width: "10%" }}
+          sx={{ margin: "3px", width: "10%", backgroundColor: "#1976d2" }}
         >
-          <ArrowDownwardIcon />
+          <ArrowDownwardIcon sx={{ color: "white" }} />
         </Button>
 
         <Button
           onClick={props.onRightClick}
           key="right"
           variant="outlined"
-          sx={{ margin: "3px", width: "10%" }}
+          sx={{ margin: "3px", width: "10%", backgroundColor: "#1976d2" }}
         >
-          <ArrowForwardIcon />
+          <ArrowForwardIcon sx={{ color: "white" }} />
         </Button>
       </div>
       <div className={styles["third-row"]}>
-        <Button onClick={props.onPause} variant="outlined">
-          <PauseIcon />
+        <Button
+          onClick={props.onPause}
+          variant="outlined"
+          sx={{ width: "10%", backgroundColor: "#1976d2" }}
+        >
+          <PauseIcon sx={{ color: "white" }} />
         </Button>
         <Button
           onClick={props.onRestart}
           variant="outlined"
-          sx={{ marginLeft: "40px" }}
+          sx={{ marginLeft: "40px", width: "10%", backgroundColor: "#1976d2" }}
         >
-          <RestartAltIcon />
+          <RestartAltIcon sx={{ color: "white" }} />
         </Button>
       </div>
     </div>
