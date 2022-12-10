@@ -19,7 +19,7 @@ const Buttons = (props) => {
           key="up"
           variant="outlined"
           sx={{
-            margin: "3px",
+            margin: "5px",
             width: "10%",
             backgroundColor: "#1976d2",
             "&:hover": {
@@ -35,7 +35,7 @@ const Buttons = (props) => {
           onClick={props.onLeftClick}
           variant="outlined"
           sx={{
-            margin: "3px",
+            margin: "5px",
             width: "10%",
             backgroundColor: "#1976d2",
             "&:hover": {
@@ -51,7 +51,7 @@ const Buttons = (props) => {
           onClick={props.onDownClick}
           variant="outlined"
           sx={{
-            margin: "3px",
+            margin: "5px",
             width: "10%",
             backgroundColor: "#1976d2",
             "&:hover": {
@@ -67,7 +67,7 @@ const Buttons = (props) => {
           key="right"
           variant="outlined"
           sx={{
-            margin: "3px",
+            margin: "5px",
             width: "10%",
             backgroundColor: "#1976d2",
             "&:hover": {
@@ -84,6 +84,8 @@ const Buttons = (props) => {
           variant="outlined"
           sx={{
             width: "10%",
+            marginTop: "5px",
+            marginBottom: "5px",
             backgroundColor: "#1976d2",
             "&:hover": {
               backgroundColor: "lightblue",
@@ -97,6 +99,8 @@ const Buttons = (props) => {
           variant="outlined"
           sx={{
             marginLeft: "40px",
+            marginTop: "5px",
+            marginBottom: "5px",
             width: "10%",
             backgroundColor: "#1976d2",
             "&:hover": {

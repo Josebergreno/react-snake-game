@@ -14,11 +14,11 @@ const Header = () => {
       }}
     >
       <h2 className={styles["title"]}>
-        <span>S</span>
-        <span>N</span>
-        <span className={styles["eight"]}>8</span>
-        <span>K</span>
-        <span>E</span>
+        <span className={styles["bigger"]}>S</span>
+        <span className={styles["bigger"]}>N</span>
+        <span className={styles["bigger"]}>8</span>
+        <span className={styles["bigger"]}>K</span>
+        <span className={styles["bigger"]}>E</span>
       </h2>
     </AppBar>
   );

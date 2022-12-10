@@ -12,10 +12,17 @@
   border-radius: 5px;
   border: solid #1976d2 2px;
   background-color: beige;
-  height: 60vmin;
-  width: 60vmin;
+  height: 55vmin;
+  width: 55vmin;
   margin: 30px;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
     rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
     rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+@media (max-width: 500px) {
+  .grid {
+    height: 80vmin;
+    width: 80vmin;
+  }
 }

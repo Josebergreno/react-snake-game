@@ -3,7 +3,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: monospace;
   font-weight: 700;
   letter-spacing: 0.3rem;
   color: inherit;
@@ -11,43 +10,12 @@
   font-size: 10vh;
 }
 
-/* .title {
-  font-family: "Calligraffitti", cursive;
-  font-size: 300%;
-  font-weight: 700;
-  text-shadow: -15px 5px 20px #ced0d3;
-  letter-spacing: 0.02em;
-  text-align: center;
-  color: #f9f1cc;
-  text-shadow: 5px 5px 0px #ffb650, 10px 10px 0px #ffd662, 15px 15px 0px #ff80bf,
-    20px 20px 0px #ef5097, 25px 25px 0px #6868ac, 30px 30px 0px #90b1e0;
-} */
-
-.title {
-  color: white;
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  transition: transform 0.3s ease-in-out;
-  height: 90%;
+.bigger {
+  font-family: "Quantico", sans-serif;
+  transition: 0.3s;
+  color: rgba(0, 0, 0, 0.6);
+  text-shadow: 2px 2px 3px rgba(255, 255, 255, 0.1);
 }
-.title:hover {
-  transform: rotateX(35deg), translateY(-50%);
-}
-
-.title:hover span:nth-child(odd) {
-  transform: skewY(15deg);
-}
-.title:hover span:nth-child(even) {
-  transform: skewY(-15deg);
-  background-color: transparent;
-}
-.title > span {
-  display: flex;
-  background-color: transparent;
-  transition: transform 0.3s ease-in-out, color 0.3s ease-in-out,
-    background-color 0.3s ease-in-out;
-}
-.title > span:first-child {
-  border-radius: 5px 0 0 5px;
+.bigger:hover {
+  transform: scale(1.1);
 }
