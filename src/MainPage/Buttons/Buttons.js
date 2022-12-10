@@ -18,7 +18,14 @@ const Buttons = (props) => {
           onKeyDown={props.onKeyPress}
           key="up"
           variant="outlined"
-          sx={{ margin: "3px", width: "10%", backgroundColor: "#1976d2" }}
+          sx={{
+            margin: "3px",
+            width: "10%",
+            backgroundColor: "#1976d2",
+            "&:hover": {
+              backgroundColor: "lightblue",
+            },
+          }}
         >
           <ArrowUpwardIcon sx={{ color: "white" }} />
         </Button>
@@ -27,7 +34,14 @@ const Buttons = (props) => {
         <Button
           onClick={props.onLeftClick}
           variant="outlined"
-          sx={{ margin: "3px", width: "10%", backgroundColor: "#1976d2" }}
+          sx={{
+            margin: "3px",
+            width: "10%",
+            backgroundColor: "#1976d2",
+            "&:hover": {
+              backgroundColor: "lightblue",
+            },
+          }}
         >
           <ArrowBackIcon sx={{ color: "white" }} />
         </Button>
@@ -36,7 +50,14 @@ const Buttons = (props) => {
           tabIndex={1}
           onClick={props.onDownClick}
           variant="outlined"
-          sx={{ margin: "3px", width: "10%", backgroundColor: "#1976d2" }}
+          sx={{
+            margin: "3px",
+            width: "10%",
+            backgroundColor: "#1976d2",
+            "&:hover": {
+              backgroundColor: "lightblue",
+            },
+          }}
         >
           <ArrowDownwardIcon sx={{ color: "white" }} />
         </Button>
@@ -45,7 +66,14 @@ const Buttons = (props) => {
           onClick={props.onRightClick}
           key="right"
           variant="outlined"
-          sx={{ margin: "3px", width: "10%", backgroundColor: "#1976d2" }}
+          sx={{
+            margin: "3px",
+            width: "10%",
+            backgroundColor: "#1976d2",
+            "&:hover": {
+              backgroundColor: "lightblue",
+            },
+          }}
         >
           <ArrowForwardIcon sx={{ color: "white" }} />
         </Button>
@@ -54,16 +82,33 @@ const Buttons = (props) => {
         <Button
           onClick={props.onPause}
           variant="outlined"
-          sx={{ width: "10%", backgroundColor: "#1976d2" }}
+          sx={{
+            width: "10%",
+            backgroundColor: "#1976d2",
+            "&:hover": {
+              backgroundColor: "lightblue",
+            },
+          }}
         >
           <PauseIcon sx={{ color: "white" }} />
         </Button>
         <Button
           onClick={props.onRestart}
           variant="outlined"
-          sx={{ marginLeft: "40px", width: "10%", backgroundColor: "#1976d2" }}
+          sx={{
+            marginLeft: "40px",
+            width: "10%",
+            backgroundColor: "#1976d2",
+            "&:hover": {
+              backgroundColor: "lightblue",
+            },
+          }}
         >
-          <RestartAltIcon sx={{ color: "white" }} />
+          <RestartAltIcon
+            sx={{
+              color: "white",
+            }}
+          />
         </Button>
       </div>
     </div>
