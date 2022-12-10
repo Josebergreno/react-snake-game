@@ -51,17 +51,13 @@ const Buttons = (props) => {
         </Button>
       </div>
       <div className={styles["third-row"]}>
-        <Button
-          onClick={props.onPause}
-          variant="outlined"
-          sx={{ margin: "3px" }}
-        >
+        <Button onClick={props.onPause} variant="outlined">
           <PauseIcon />
         </Button>
         <Button
           onClick={props.onRestart}
           variant="outlined"
-          sx={{ margin: "3px" }}
+          sx={{ marginLeft: "40px" }}
         >
           <RestartAltIcon />
         </Button>
