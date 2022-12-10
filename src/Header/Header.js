@@ -13,7 +13,13 @@ const Header = () => {
         alignContent: "center",
       }}
     >
-      <h2 className={styles["title"]}>SN8KE</h2>
+      <h2 className={styles["title"]}>
+        <span>S</span>
+        <span>N</span>
+        <span className={styles["eight"]}>8</span>
+        <span>K</span>
+        <span>E</span>
+      </h2>
     </AppBar>
   );
 };
